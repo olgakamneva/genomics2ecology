@@ -1,4 +1,4 @@
-context("Test for similarity_by_set")
+context("Test similarity_by_set and similarity functions")
 
 test_that("similarity_by_set returns correct values", {
   expect_equal(similarity_by_set(gene_sets1 = list(c(1, 0, 1, 0, 1, 1, 0, 0), c(1, 1, 1, 0, 0, 0), c(1, 1, 1, 1, 1, 1), c(0, 0, 0), c(1, 1, 1), c(1, 1, 1), c(1, 0, 0)), 
@@ -12,18 +12,18 @@ sets_Bf = set_representation(families = families_Bf, gene_sets = reference_gene_
 test_that("similarity returns correct value", {
   expect_equal(similarity(gene_sets1 = list(c(1, 1, 1, 1, 1, 1, 1, 1), c(1, 1, 1, 1, 1, 1)), 
                           gene_sets2 = list(c(0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0)), 
-                          threshold = 0.05), 0)
+                          threshold = 0.05, size = 1), 0)
   
   expect_equal(similarity(gene_sets1 = list(c(0, 0, 0, 0, 0, 0, 0, 0), c(0, 0, 0, 0, 0, 0)), 
                           gene_sets2 = list(c(1, 1, 1, 1, 1, 1, 1, 1), c(1, 1, 1, 1, 1, 1)), 
-                          threshold = 0.05), 0)
+                          threshold = 0.05, size = 1), 0)
   
   expect_equal(similarity(gene_sets1 = list(c(1, 0, 1, 0, 1, 1, 0, 0), c(1, 1, 1, 0, 0, 0), c(1, 1, 1, 1, 1, 1), c(0, 0, 0), c(1, 1, 1), c(1, 1, 1), c(1, 0, 0)), 
                           gene_sets2 = list(c(1, 1, 0, 0, 0, 1, 1, 0), c(0, 0, 0, 1, 1, 1), c(1, 1, 1, 0, 0, 0), c(0, 0, 0), c(0, 0, 0), c(1, 1, 1), c(1, 0, 0)), 
-                          threshold = 0.05), 0.5)
+                          threshold = 0.05, size = 1), 0.5)
   
   expect_equal(similarity(gene_sets1 = sets_Bf, 
-                          gene_sets2 = sets_Bf, threshold = 0.05), 1)
+                          gene_sets2 = sets_Bf, threshold = 0.05, size = 4), 1)
 })
 
 

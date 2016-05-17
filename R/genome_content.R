@@ -21,7 +21,7 @@
 #' sim_Bf_Er = similarity(gene_sets1 = sets_Bf, gene_sets2 = sets_Er, threshold = 0.05)
 #' sim_Bf_Er
 #' @export
-similarity <- function(gene_sets1, gene_sets2, threshold = 0.05)
+similarity <- function(gene_sets1, gene_sets2, threshold = 0.05, size = 4)
 {
   if(class(gene_sets1) != "list" | class(gene_sets2) != "list" | class(threshold) != "numeric" |
      threshold <= 0 | threshold > 1){
@@ -29,7 +29,7 @@ similarity <- function(gene_sets1, gene_sets2, threshold = 0.05)
         Threshold should be a real value between 0 and 1. See help for more details", "\n", sep="")
   }
   indices = similarity_by_set(gene_sets1, gene_sets2)
-  indices = indices[indices[,5] > (indices[,3] * threshold) | indices[,4] > (indices[,3] * threshold),]
+  indices = indices[indices[,3] >= size & (indices[,5] > (indices[,3] * threshold) | indices[,4] > (indices[,3] * threshold)),]
   sim_index = mean(indices[, 2])
   return(sim_index)
 }

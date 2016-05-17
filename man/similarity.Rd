@@ -4,7 +4,7 @@
 \alias{similarity}
 \title{Compute genome content similarity index}
 \usage{
-similarity(gene_sets1, gene_sets2, threshold = 0.05)
+similarity(gene_sets1, gene_sets2, threshold = 0.05, size = 4)
 }
 \arguments{
 \item{gene_sets1}{list of vectors of 1s and 0s which represnet presence and absence of gene families from each of the gene sets in first genome.}

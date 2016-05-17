@@ -70,7 +70,7 @@ similarity_by_set <- function(gene_sets1, gene_sets2) {
 
 
 get_similarity<-function(genes) {
-  sim_index = sum(abs(genes[,1] - genes[,2]));
+  sim_index = sum(1-abs(genes[,1] - genes[,2]));
   sim_index = sim_index/length(genes[,1])
   indices = c(sim_index,dim(genes)[1], sum(genes[,1]),sum(genes[,2]) )
   return(indices)

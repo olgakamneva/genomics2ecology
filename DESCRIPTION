@@ -9,5 +9,6 @@ Description: Microbial ecology relies heavily on marker genes, 16S rRNA or
     genomics-based methods with help to move beyond marker gene studies and attempt
 License: What license is it under?
 LazyData: true
-Imports:
+Imports: 
 RoxygenNote: 5.0.1
+Suggests: testthat

@@ -1,0 +1,13 @@
+Package: genomics2ecology
+Type: Package
+Title: Methods of genomic analysis for microbial ecology
+Version: 0.1.0
+Authors@R: person("Olga", "Kamneva", email = "olga.k.kamneva@gmail.com", role = c("aut", "cre"))
+Description: Microbial ecology relies heavily on marker genes, 16S rRNA or
+    other, however observed patterns of microbial presence/absence or co-occurrence
+    cannot be explained using marker genes. This package implements several
+    genomics-based methods with help to move beyond marker gene studies and attempt
+License: What license is it under?
+LazyData: true
+Imports:
+RoxygenNote: 5.0.1

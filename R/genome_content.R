@@ -5,7 +5,8 @@
 #' @param gene_sets2 list of vectors of 1s and 0s which represnet presence and absence of gene families from each of the gene sets in second genome.
 #' @param threshold fraction of gene families from a gene set which is required to be present in
 #'        at least one of the genomes for for the gene set to contribute to genome content
-#'        similarity index calculation.
+#'        similarity index calculation (default is 0.05).
+#' @param size minimal size of the gene set to consider (default is 4).
 #' @return Genome content similarity index computed for two genomes encoding \code{gene_sets1}
 #'        and \code{gene_sets2} respectively.
 #' @references \enumerate{
@@ -18,7 +19,7 @@
 #' data(families_Er)
 #' sets_Bf = set_representation(families = families_Bf, gene_sets = reference_gene_sets)
 #' sets_Er = set_representation(families = families_Er, gene_sets = reference_gene_sets)
-#' sim_Bf_Er = similarity(gene_sets1 = sets_Bf, gene_sets2 = sets_Er, threshold = 0.05)
+#' sim_Bf_Er = similarity(gene_sets1 = sets_Bf, gene_sets2 = sets_Er, threshold = 0.05, size = 4)
 #' sim_Bf_Er
 #' @export
 similarity <- function(gene_sets1, gene_sets2, threshold = 0.05, size = 4)

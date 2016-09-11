@@ -61,10 +61,10 @@ similarity_by_set <- function(gene_sets1, gene_sets2) {
   }
   genes = mapply(cbind, gene_sets1, gene_sets2, SIMPLIFY = FALSE)
   indices = lapply(genes, get_similarity)
-  indices = matrix(unlist(indices), ncol = 4, byrow = TRUE)
-  indices = cbind(1:length(gene_sets1), indices)
+  indices = matrix(unlist(indices), ncol = length(indices[[1]]), byrow = TRUE)
+  indices = cbind("gene_set" = 1:length(gene_sets1), indices)
+  colnames(indices) = c("gene_set", "index", "set_size", "in_genome1", "in_genome2", "in_both")
   indices = as.data.frame(indices)
-  names(indices) = c("gene_set", "index", "set_size", "in_genome1", "in_genome2")
   return(indices)
 }
 
@@ -73,6 +73,8 @@ similarity_by_set <- function(gene_sets1, gene_sets2) {
 get_similarity<-function(genes) {
   sim_index = sum(1-abs(genes[,1] - genes[,2]));
   sim_index = sim_index/length(genes[,1])
-  indices = c(sim_index,dim(genes)[1], sum(genes[,1]),sum(genes[,2]) )
+  in_both = sum((genes[,1] + genes[,2])>0)
+  indices = c("index" = sim_index, "set_size" = dim(genes)[1], "in_genome1"= sum(genes[,1]), 
+              "in_genome2" = sum(genes[,2]), "in_both" = in_both)
   return(indices)
 }

@@ -2,8 +2,9 @@ context("Test similarity_by_set and similarity functions")
 
 test_that("similarity_by_set returns correct values", {
   expect_equal(similarity_by_set(gene_sets1 = list(c(1, 0, 1, 0, 1, 1, 0, 0), c(1, 1, 1, 0, 0, 0), c(1, 1, 1, 1, 1, 1), c(0, 0, 0), c(1, 1, 1), c(1, 1, 1), c(1, 0, 0)), 
-                                gene_sets2 = list(c(1, 1, 0, 0, 0, 1, 1, 0), c(0, 0, 0, 1, 1, 1), c(1, 1, 1, 0, 0, 0), c(0, 0, 0), c(0, 0, 0), c(1, 1, 1), c(1, 0, 0))), 
-              data.frame(gene_set = c(1:7), index = c(0.5, 0, 0.5, 1, 0, 1, 1), set_size = c(8, 6, 6, 3, 3, 3, 3), in_genome1 = c(4, 3, 6, 0, 3, 3, 1), in_genome2 = c(4, 3, 3, 0, 0, 3, 1)))
+                                 gene_sets2 = list(c(1, 1, 0, 0, 0, 1, 1, 0), c(0, 0, 0, 1, 1, 1), c(1, 1, 1, 0, 0, 0), c(0, 0, 0), c(0, 0, 0), c(1, 1, 1), c(1, 0, 0))), 
+              data.frame(gene_set = c(1:7), index = c(0.5, 0, 0.5, 1, 0, 1, 1), set_size = c(8, 6, 6, 3, 3, 3, 3), in_genome1 = c(4, 3, 6, 0, 3, 3, 1), in_genome2 = c(4, 3, 3, 0, 0, 3, 1), 
+                         in_both = c(6, 6, 6, 0, 3, 3, 1)))
 })
 
 
